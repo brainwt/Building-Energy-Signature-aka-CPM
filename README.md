@@ -64,5 +64,15 @@
   + 엑셀시트 app4 MATLAB cpm parameters : BE-sig 모델 설명
   + 엑셀시트 별도 체크 사항              : 그냥 주저리주저리
 ```
+
+
+# Copyright
+BE-sig : Building Energy signature Toolkit Copyright (c) 2023
+KICT (subject to receipt of any required approvals from the MOLIT) All rights reserved.
+
+If you have questions about your rights to use or distribute this software, please contact KICT at ***@kict.re.kr (미확정).
+
+NOTICE. This source code was developed under funding from the MOLIT South Korean Government consequently retains certain rights. As such, the South Korean Government has been granted for itself and others acting on its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the code to reproduce, distribute copies to the public, prepare derivative works, and perform publicly and display publicly, and to permit other to do so.
+
 끝.
 
