@@ -53,8 +53,9 @@
 
 ---
 ## 알고리즘 검증 (월별 데이터만 검증됨)
-- ".\BETTER 검증결과\" 폴더의 `결과비교_20230411.xlsx` 파일 참고   
+- LBNL의 BETTER 툴킷과 비교. (https://github.com/LBNL-JCI-ICF/better.git)
 - 잠정 결론 : 둘 다 비슷하다. 다만, BETTER 툴은 4p 모델이 가끔 선택됨. 
+- 결과 비교 : ".\BETTER 검증결과\" 폴더의 `결과비교_20230411.xlsx` 파일 참고 
 ```
   + 엑셀시트 summary (MATLAB vs BETTER) : 상세한 결과 비교표
   + 엑셀시트 R2 (MATLAB vs BETTER)      : R2만 따로 비교
