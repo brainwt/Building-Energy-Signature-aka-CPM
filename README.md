@@ -75,10 +75,10 @@
 
 
 # Copyright
-BE-sig : Building Energy signature Toolkit Copyright (c) 2023
-KICT (subject to receipt of any required approvals from the MOLIT) All rights reserved.
+***BE-sig*** : ***B***uilding ***E***nergy ***sig***nature Toolkit Copyright (c) 2023
+KICT (subject to receipt of any required approvals from South Korea MOLIT) All rights reserved.
 
-If you have questions about your rights to use or distribute this software, please contact KICT at ***@kict.re.kr (미확정).
+If you have questions about your rights to use or distribute this code, please contact KICT at deukwookim@kict.re.kr.
 
 NOTICE. This source code was developed under funding from the MOLIT South Korean Government consequently retains certain rights. As such, the South Korean Government has been granted for itself and others acting on its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the code to reproduce, distribute copies to the public, prepare derivative works, and perform publicly and display publicly, and to permit other to do so.
 
