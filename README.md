@@ -80,7 +80,7 @@ Korea Institute of Civil Engineering and Building Technology, KICT (subject to r
 
 If you have questions about your rights to use or distribute this code, please contact KICT at deukwookim@kict.re.kr.
 
-NOTICE. This source code was developed under funding from the MOLIT South Korean Government consequently retains certain rights. As such, the South Korean Government has been granted for itself and others acting on its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the code to reproduce, distribute copies to the public, prepare derivative works, and perform publicly and display publicly, and to permit other to do so.
+NOTICE. This source code was developed under funding from the MOLIT South Korea Government consequently retains certain rights. As such, the South Korea Government has been granted for itself and others acting on its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the code to reproduce, distribute copies to the public, prepare derivative works, and perform publicly and display publicly, and to permit other to do so.
 
 끝.
 
