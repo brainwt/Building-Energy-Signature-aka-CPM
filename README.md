@@ -76,7 +76,7 @@
 
 # Copyright
 ***BE-sig*** : ***B***uilding ***E***nergy ***sig***nature Toolkit Copyright (c) 2023
-KICT (subject to receipt of any required approvals from South Korea MOLIT) All rights reserved.
+Korea Institute of Civil Engineering and Building Technology, KICT (subject to receipt of any required approvals from South Korea Ministry of Land, Infrastructure and Transport, MOLIT). All rights reserved.
 
 If you have questions about your rights to use or distribute this code, please contact KICT at deukwookim@kict.re.kr.
 
