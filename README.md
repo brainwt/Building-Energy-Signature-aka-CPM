@@ -54,7 +54,8 @@
 - Es      : 에너지원 명
 
 ### 6 알고리즘 설명 및 출처
-- https://www.mdpi.com/1890298
+- 알고리즘 설명 : https://www.mdpi.com/1890298
+- Kim D-W, Ahn K-U, Shin H, Lee S-E. Simplified Weather-Related Building Energy Disaggregation and Change-Point Regression: Heating and Cooling Energy Use Perspective. Buildings. 2022; 12(10):1717
 
 
 ---
