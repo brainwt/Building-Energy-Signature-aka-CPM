@@ -6,7 +6,9 @@ function [ ] = fn_CPM_plot_z(do_plot, save_T_stat, C_cookd, C_ZRE,  Tout, y_mea,
 fnExistFolder(pathnm_pics);
 
 %% CPM 선택
-CPM_type_list={'1p','2p_h','2p_c','3p_h','3p_c','4p_h','4p_c','5p'};
+% (230414) 4p 모델은 사용하지 않음
+CPM_type_list={'1p','2p_h','2p_c','3p_h','3p_c','5p'}; 
+% CPM_type_list={'1p','2p_h','2p_c','3p_h','3p_c','4p_h','4p_c','5p'};
 %  CPM_type_list={'2p_c'};
 %   CPM_type_list={'2p_h'};
 %   CPM_type_list={'5p'};

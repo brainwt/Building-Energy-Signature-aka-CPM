@@ -11,7 +11,7 @@ function [save_T_stat, C_cookd, C_ZRE] = fn_CPM_run(Tout, y_mea, pathnm_csv, pat
 % 수정사항
 % (220608) 기울기 제약을 해제. 이상치 탐색시 활용.
 % (210302) 방학등 1% 이하의 사용량은 nan 으로 처리한다.
-% (210302) 4parameter 모델은 고려하지 않음
+% (210302) 4 parameter 모델은 고려하지 않음
 
 
 %% 폴더 체크
