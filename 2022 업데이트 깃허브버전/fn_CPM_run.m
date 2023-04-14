@@ -193,12 +193,17 @@ for m=1:length(CPM_type_list)
         otherwise
     end
 
-    %% 최적화
-    options = optimoptions('fmincon','Display','off');
-%     x0
-%     f
-    [x_opt,fval,exitflag,output]  = fmincon(f,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
-    % RMSE_hat =fval;
+    %% 최적화 
+    % options = optimoptions('fmincon','Display','off');
+    % [x_opt,fval,exitflag,output]  = fmincon(f,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
+
+    %% 최적화 updated 
+    % 알고리즘 참고: https://kr.mathworks.com/help/optim/ug/choosing-the-algorithm.html#bsbwxm7
+    options = optimoptions('fmincon','Display','off', 'Algorithm','sqp');
+    problem = createOptimProblem('fmincon','objective',...
+    f,'x0',x0,'Aineq',A,'bineq',b,'Aeq', Aeq, 'beq', beq, 'lb',lb, 'ub', ub, 'nonlcon', nonlcon, 'options',options);
+    gs = GlobalSearch;
+    [x_opt,fval] = run(gs,problem);
 
     % 통계 추출
     [T_stat, Cook_out_idx, D, ~, ZRE, p ] = fn_CPM_stat(Case_str, CPM_type, x_opt, Tout, y_mea, date_fr,date_to );
