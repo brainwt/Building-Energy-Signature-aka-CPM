@@ -54,8 +54,14 @@
 - Es      : 에너지원 명
 
 ### 6 알고리즘 설명 및 출처
-- 알고리즘 설명 : https://www.mdpi.com/1890298
-- Kim D-W, Ahn K-U, Shin H, Lee S-E. Simplified Weather-Related Building Energy Disaggregation and Change-Point Regression: Heating and Cooling Energy Use Perspective. Buildings. 2022; 12(10):1717
+- 소스코드 사용시 출처 표기 
+  
+  국문: 건물부문 탄소중립 가속화를 위한 건물에너지 소비 데이터 통합관리 기반기술 개발 (과제번호 : RS-2023-00244769)  
+  영문: Grant RS-2023-00244769, Development of a data framework for integrating building energy datasets and applications to accelerate carbon neutrality in the building sector
+  
+- 알고리즘 출처 표기
+
+   Kim D-W, Ahn K-U, Shin H, Lee S-E. Simplified Weather-Related Building Energy Disaggregation and Change-Point Regression: Heating and Cooling Energy Use Perspective. Buildings. 2022; 12(10):1717, https://www.mdpi.com/1890298
 
 
 ---
@@ -79,7 +85,7 @@
 Research was conducted under the KICT Research Program (project no. 20220260-001, Data-Centric Checkup Technique of Building Energy Performance) funded by the
 Ministry of Science and ICT.
 
-This work is supported by the Korea Agency for Infrastructure Technology Advancement(KAIA) grant funded by the Ministry of Land, Infrastructure and Transport (Grant RS-2023-00244769)
+This work is supported by the Korea Agency for Infrastructure Technology Advancement(KAIA) grant funded by the Ministry of Land, Infrastructure and Transport (Grant RS-2023-00244769, Development of a data framework for integrating building energy datasets and applications to accelerate carbon neutrality in the building sector)
 
 ---
 # Copyright
