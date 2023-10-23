@@ -194,13 +194,13 @@ for m=1:length(CPM_type_list)
     end
 
     %% 최적화
-    options = optimoptions('fmincon','Display','off');
-%     x0
-%     f
-    [x_opt,fval,exitflag,output]  = fmincon(f,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
-    % RMSE_hat =fval;
 
-    % 통계 추출
+    % --------- legacy 버전 ---------
+    options = optimoptions('fmincon','Display','off');
+    [x_opt,fval,exitflag,output]  = fmincon(f,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
+    
+    
+    %% 통계 추출
     [T_stat, Cook_out_idx, D, ~, ZRE, p ] = fn_CPM_stat(Case_str, CPM_type, x_opt, Tout, y_mea, date_fr,date_to );
     
     C_cookd(m,1) = {D};
