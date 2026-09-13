@@ -1,5 +1,7 @@
 # ***BE-sig*** : ***B***uilding ***E***nergy ***sig***nature Toolkit
 
+[![tests](https://github.com/brainwt/Building-Energy-Signature-aka-CPM/actions/workflows/tests.yml/badge.svg)](https://github.com/brainwt/Building-Energy-Signature-aka-CPM/actions/workflows/tests.yml)
+
 건물 에너지 사용량과 외기온의 관계를 **변곡점 회귀(CPM, Change-Point Model)** 로
 적합하는 도구입니다. ASHRAE Guideline 14 계열의 모델 8종을 지원합니다.
 
@@ -175,6 +177,9 @@ pytest                                        # 137개
 pytest -q tests/test_matlab_regression.py     # MATLAB 결과 대조만
 pytest -q tests/test_multistart_benefit.py    # 멀티스타트 효과 검증만
 ```
+
+GitHub Actions가 `main`으로의 push와 모든 PR에서 Python 3.10~3.13 전부에 대해
+테스트와 CLI 동작을 확인합니다 (`.github/workflows/tests.yml`).
 
 ## 프로젝트 구조
 

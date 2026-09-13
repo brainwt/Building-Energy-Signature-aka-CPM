@@ -1,0 +1,43 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # pyproject.toml의 requires-python = ">=3.10" 하한과 최신 안정 버전을 함께 본다.
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: 의존성 설치
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: 테스트
+        # 산점도는 Agg 백엔드로 그려지므로 디스플레이가 필요 없다.
+        run: pytest -v --durations=10
+
+      - name: CLI 동작 확인
+        run: |
+          besig --version
+          besig models
+          besig run --energy data/Y_daily.csv --weather data/weather \
+                    --id ci --output "${RUNNER_TEMP}/besig-out"
+          test -f "${RUNNER_TEMP}/besig-out/csv_CPM/CPM_Result_pkci20182018.txt"
+          test -s "${RUNNER_TEMP}/besig-out/pics_CPM/CPM_bestfit0_Tot_daily_pkci20182018.png"
