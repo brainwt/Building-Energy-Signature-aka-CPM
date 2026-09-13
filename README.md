@@ -131,6 +131,20 @@ y_hat = predict("3p_h", fit.x, np.linspace(-10, 35, 100))
 시작점 목록에 원본 초기값이 항상 포함되므로 `multistart`의 해는 `slsqp`보다
 나빠질 수 없습니다. 동봉 자료 기준 0.2초면 끝납니다.
 
+MATLAB 쪽에서도 같은 문제를 같은 방법으로 다룬 적이 있습니다 —
+`global-optimization` 브랜치의 `fn_CPM_run_MS.m`이 `MultiStart` +
+`RandomStartPointSet(20)`로 `fmincon`을 감싼 구현입니다. 그 브랜치가 효과를
+보이려고 추가했던 예제 자료 두 개를 `data/`로 가져와 회귀 테스트로 고정해
+두었습니다 (`tests/test_multistart_benefit.py`).
+
+| 예제 자료 | 개선되는 모델 | RMSE 개선 |
+|---|---|---|
+| `Y_monthly_41220-52882.csv` | `3p_c`, `5p` | 약 7.0% |
+| `Y_monthly_41670-100177112.csv` | `3p_c`, `5p` | 약 3.6% |
+
+변곡점이 없는 모델(`1p`, `2p_h`, `2p_c`)은 목적함수가 볼록해 시작점과 무관하게
+같은 해로 수렴하며, 실제로 차이가 없습니다.
+
 ## MATLAB 결과와의 일치성
 
 `tests/fixtures/`의 MATLAB 원본 출력과 대조하는 회귀 테스트가 있습니다.
@@ -157,8 +171,9 @@ y_hat = predict("3p_h", fit.x, np.linspace(-10, 35, 100))
 ## 테스트
 
 ```bash
-pytest            # 122개
-pytest -q tests/test_matlab_regression.py   # MATLAB 대조만
+pytest                                        # 137개
+pytest -q tests/test_matlab_regression.py     # MATLAB 결과 대조만
+pytest -q tests/test_multistart_benefit.py    # 멀티스타트 효과 검증만
 ```
 
 ## 프로젝트 구조
@@ -176,6 +191,8 @@ src/besig/
 ├── config.py           # 분석 설정
 └── cli.py              # besig 명령
 data/                   # 검증용 에너지·기상 자료
+                        #   Y_daily.csv, Y_monthly.csv (기본 예제)
+                        #   Y_monthly_4122*.csv, Y_monthly_4167*.csv (멀티스타트 예제)
 tests/                  # pytest (fixtures/ = MATLAB 원본 출력)
 legacy/matlab/          # 기존 MATLAB 구현 (보존)
 docs/                   # 테이블정의서
