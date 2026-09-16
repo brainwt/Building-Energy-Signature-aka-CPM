@@ -11,6 +11,7 @@ matlab/
 ├── Run_CPM_onebyone_f_extracted.m    # 위 .mlx에서 추출한 평문 코드 (읽기용)
 ├── fn_CPM_{1p,2p*,3p*,4p*,5p}.m      # 모델식 8종
 ├── fn_CPM_obj.m / fn_CPM_run*.m      # 목적함수 / 최적화 루프 3종
+├── fn_CPM_run_MS.m                   # 멀티스타트 최적화 (아래 설명 참고)
 ├── fn_CPM_stat.m                     # 통계 지표
 ├── fn_CPM_plot*.m                    # 시각화
 ├── fn_CPM_HC.m                       # 난방/냉방 분해
@@ -21,6 +22,34 @@ BETTER 검증결과/                       # BETTER 도구와의 비교 결과
 `Run_CPM_onebyone_f_extracted.m`은 `.mlx`(zip 컨테이너)의 코드 셀만 뽑아낸
 것으로, 원본에 없던 파일입니다. 실행용이 아니라 **diff·코드리뷰용**입니다.
 마크다운 셀은 `%%%% [스타일] 내용` 주석으로 표시했습니다.
+
+## `fn_CPM_run_MS.m` — 멀티스타트 최적화
+
+삭제된 `global-optimization` 브랜치(마지막 커밋 `850e31f`)에서 가져온 파일입니다.
+`fn_CPM_run.m`을 복사해 최적화 부분만 바꾼 것으로, 단일 시작점 대신
+MATLAB `MultiStart`를 씁니다.
+
+```matlab
+% --------- legacy 방식 ---------
+% options = optimoptions('fmincon','Display','off');
+% [x_opt,fval,...] = fmincon(f,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
+
+% ---------  멀티스타트 방식 (230414) ---------
+options = optimoptions('fmincon','Display','off','Algorithm','sqp');
+problem = createOptimProblem('fmincon','objective',f,'x0',x0, ...);
+rs = RandomStartPointSet('NumStartPoints',20,'ArtificialBound',10000);
+ms = MultiStart;
+[x_opt,fval] = run(ms,problem, rs);
+```
+
+원본의 초기값(기울기 계수 = 0)은 변곡점이 있는 모델에서 국소최적해에 갇힙니다.
+이 파일은 그 문제를 다룬 **선행 구현**이며, Python 패키지의 기본 최적화 전략
+`--strategy multistart`가 같은 접근을 따릅니다. 효과를 보이려고 함께 추가됐던
+예제 자료 두 개는 `data/Y_monthly_41220-52882.csv`,
+`data/Y_monthly_41670-100177112.csv`로 옮겨 회귀 테스트
+(`tests/test_multistart_benefit.py`)에 쓰고 있습니다.
+
+MATLAB 최적화 도구상자(Global Optimization Toolbox)가 있어야 실행됩니다.
 
 ## 실행하려면 경로 수정이 필요합니다
 
